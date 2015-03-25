@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Configures JSS to detect Adware, and prompt users to manually remove via Self Service.</string>
+        <key>Identifier</key>
+        <string>com.github.sheagcraig.jss.DetectAndRemoveAdware</string>
+        <!--
+             1. Package yo, scope and install.
+             2. Add extension attribute
+             3. Add ComputersWithAdware smart group
+             4. Add removal policy
+             5. Add notification policy
+        -->
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>DetectAndRemoveAdware</string>
+            <key>CATEGORY</key>
+            <string>Management</string>
+            <key>POLICY_CATEGORY</key>
+            <string>Management</string>
+            <key>POLICY_TEMPLATE</key>
+            <string>%RECIPE_DIR%/PolicyTemplate.xml</string>
+            <key>ICON</key>
+            <string></string>
+            <key>GROUP_NAME</key>
+            <string>ComputersWithAdware</string>
+            <key>GROUP_TEMPLATE</key>
+            <string>%RECIPE_DIR%/ComputersWithAdwareGroupTemplate.xml</string>
+            <key>DESCRIPTION</key>
+            <string/>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.4.0</string>
+        <!--<key>ParentRecipe</key>
+        <string></string>-->
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>prod_name</key>
+                    <string>%NAME%</string>
+                    <key>category</key>
+                    <string>%CATEGORY%</string>
+                    <key>policy_category</key>
+                    <string>%POLICY_CATEGORY%</string>
+                    <key>policy_template</key>
+                    <string>%POLICY_TEMPLATE%</string>
+                    <key>self_service_icon</key>
+                    <string>%ICON%</string>
+                    <key>self_service_description</key>
+                    <string>%DESCRIPTION%</string>
+                    <key>groups</key>
+                    <array>
+                        <dict>
+                            <key>name</key>
+                            <string>%GROUP_NAME%</string>
+                            <key>smart</key>
+                            <true/>
+                            <key>template_path</key>
+                            <string>%GROUP_TEMPLATE%</string>
+                        </dict>
+                    </array>
+                    <key>extension_attributes</key>
+                    <array>
+                        <dict>
+                            <key>name</key>
+                            <string>AdwareCheckExtensionAttribute</string>
+                            <key>ext_attribute_path</key>
+                            <string>%RECIPE_DIR%/AdwareCheckExtensionAttribute.xml</string>
+                        </dict>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>JSSImporter</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

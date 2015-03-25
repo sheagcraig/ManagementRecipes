@@ -1,0 +1,14 @@
+<computer_group>
+    <name>ComputerHasAdware</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <criterion>
+            <name>AdwareCheckExtensionAttribute</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is like</search_type>
+            <value>True</value>
+        </criterion>
+    </criteria>
+</computer_group>
+
